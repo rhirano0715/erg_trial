@@ -1,0 +1,21 @@
+print! "hello, world"
+
+print! "Hello, World!" # OK
+print! "Hello,", "World!" # OK
+print!() # OK
+# print! # OKだが呼び出しという意味ではなく、単に`print!`を呼び出し可能なオブジェクトとして取得するという意味となる
+
+# print! f x # OK、これは`print!(f(x))`として解釈される
+# print!(f(x, y)) # OK
+# print! f(x, y) # OK
+# print! f(x, g y) # OK
+# print! f x, y # NG, `print!(f(x), y)`または`print!(f(x, y))`の二通りの解釈ができてしまう
+# print!(f x, y) # NG, `print!(f(x), y)`または`print!(f(x, y))`の二通りの解釈ができてしまう
+# print! f(x, g y, z) # NG, `print!(x, g(y), z)`または`print!(x, g(y, z))`の二通りの解釈ができてしまう
+
+# コメント
+## `#`以降は改行されるまで無視されるため、`#`は何個でも使用できる
+#[
+複数行コメント
+対応する`#[`から`]#`のところまでがコメントとして扱われる
+]#
